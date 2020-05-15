@@ -10,6 +10,10 @@ import Foundation
 
 class Agencia {
     let endereco: String
-    let horariosDeFuncionamento: String
+    let horarioDeFuncionamento: String
     
+    init(endereco: String, horarioDeFuncionamento: String) {
+        self.endereco = endereco
+        self.horarioDeFuncionamento = horarioDeFuncionamento
+    }
 }

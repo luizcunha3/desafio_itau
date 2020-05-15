@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class AgenciaViewModel {
+    
+    var delegate: AgenciaViewDelegate?
+    
+    private let agencias: [Agencia] = []
+    
+}
+
