@@ -1,5 +1,5 @@
 //
-//  KeysHelper.swift
+//  StringsHelper.swift
 //  Desafio Itau
 //
 //  Created by Luiz Carlos Cunha  on 15/05/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class KeysHelper {
-    static let GOOGLE_API_KEY = "AIzaSyAYCPmkz8HvLWx8SU3yFWgOmRDa5oRq2OI"
+class StringsHelper {
+    static let GMS_PLACES_QUERY_STRING = "Itau"
 }

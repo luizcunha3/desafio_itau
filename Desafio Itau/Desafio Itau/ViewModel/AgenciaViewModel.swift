@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreLocation
+import GoogleMaps
 
 class AgenciaViewModel {
     
@@ -16,8 +18,7 @@ class AgenciaViewModel {
     
     private let repository = GooglePlacesRepository()
     
-    func ready() {
+    func ready(location: CLLocation?) {
         delegate.setLoadingTo(true)
     }
 }
-

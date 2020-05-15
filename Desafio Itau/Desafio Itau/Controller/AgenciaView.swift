@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
 
 protocol AgenciaViewDelegate {
     func showAgencias(agencias: [Agencia])
@@ -15,25 +17,32 @@ protocol AgenciaViewDelegate {
 
 class AgenciaView: UIViewController {
     
-    var viewModel: AgenciaViewModel
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.viewModel = AgenciaViewModel()
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var viewModel: AgenciaViewModel!
+    private let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.viewModel = AgenciaViewModel()
         self.viewModel.delegate = self
+        self.locationManager.delegate = self
+        self.configureMap()
+        self.locationManager.requestWhenInUseAuthorization()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewModel.ready()
+        
     }
     
+}
+
+extension AgenciaView {
+    func configureMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        self.view.addSubview(mapView)
+    }
 }
 
 extension AgenciaView: AgenciaViewDelegate {
@@ -44,6 +53,21 @@ extension AgenciaView: AgenciaViewDelegate {
     
     func showAgencias(agencias: [Agencia]) {
         print("Show Agencias")
+    }
+}
+
+extension AgenciaView: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .denied {
+            print("User denied location")
+        } else {
+            self.locationManager.requestLocation()
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            self.viewModel.ready(location: location)
+        }
     }
 }
 
