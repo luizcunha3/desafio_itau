@@ -13,9 +13,12 @@
 		56465AF4246F304800B0E85C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56465AF2246F304800B0E85C /* Main.storyboard */; };
 		56465AF6246F304A00B0E85C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56465AF5246F304A00B0E85C /* Assets.xcassets */; };
 		56465AF9246F304A00B0E85C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56465AF7246F304A00B0E85C /* LaunchScreen.storyboard */; };
+		855356DA20A108D6D2CB5662 /* Pods_Desafio_Itau.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0545658AD6B032E318DB5DF /* Pods_Desafio_Itau.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11FDE2F0F210C57153CB9644 /* Pods-Desafio Itau.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio Itau.release.xcconfig"; path = "Target Support Files/Pods-Desafio Itau/Pods-Desafio Itau.release.xcconfig"; sourceTree = "<group>"; };
+		37CBCE4C6FD6CC6A20071E43 /* Pods-Desafio Itau.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio Itau.debug.xcconfig"; path = "Target Support Files/Pods-Desafio Itau/Pods-Desafio Itau.debug.xcconfig"; sourceTree = "<group>"; };
 		56465AE9246F304800B0E85C /* Desafio Itau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio Itau.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56465AEC246F304800B0E85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56465AEE246F304800B0E85C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		56465AF5246F304A00B0E85C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56465AF8246F304A00B0E85C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56465AFA246F304A00B0E85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0545658AD6B032E318DB5DF /* Pods_Desafio_Itau.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Desafio_Itau.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855356DA20A108D6D2CB5662 /* Pods_Desafio_Itau.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D9780743C3734593E951316 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37CBCE4C6FD6CC6A20071E43 /* Pods-Desafio Itau.debug.xcconfig */,
+				11FDE2F0F210C57153CB9644 /* Pods-Desafio Itau.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		56465AE0246F304800B0E85C = {
 			isa = PBXGroup;
 			children = (
 				56465AEB246F304800B0E85C /* Desafio Itau */,
 				56465AEA246F304800B0E85C /* Products */,
+				3D9780743C3734593E951316 /* Pods */,
+				C09ACE3650D7C9EBD2B0CD94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +84,14 @@
 			path = "Desafio Itau";
 			sourceTree = "<group>";
 		};
+		C09ACE3650D7C9EBD2B0CD94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0545658AD6B032E318DB5DF /* Pods_Desafio_Itau.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56465AFD246F304A00B0E85C /* Build configuration list for PBXNativeTarget "Desafio Itau" */;
 			buildPhases = (
+				B737BE618DE5CE9A7E53C02B /* [CP] Check Pods Manifest.lock */,
 				56465AE5246F304800B0E85C /* Sources */,
 				56465AE6246F304800B0E85C /* Frameworks */,
 				56465AE7246F304800B0E85C /* Resources */,
+				514C1276133EAB2581EE6CA0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		514C1276133EAB2581EE6CA0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Desafio Itau/Pods-Desafio Itau-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Desafio Itau/Pods-Desafio Itau-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Desafio Itau/Pods-Desafio Itau-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B737BE618DE5CE9A7E53C02B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Desafio Itau-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		56465AE5246F304800B0E85C /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		56465AFE246F304A00B0E85C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37CBCE4C6FD6CC6A20071E43 /* Pods-Desafio Itau.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		56465AFF246F304A00B0E85C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11FDE2F0F210C57153CB9644 /* Pods-Desafio Itau.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
