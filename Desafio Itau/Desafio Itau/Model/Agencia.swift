@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Agencia {
+    let endereco: String
+    let horariosDeFuncionamento: String
+    
+}
