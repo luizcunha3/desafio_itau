@@ -10,6 +10,7 @@ import UIKit
 
 protocol AgenciaViewDelegate {
     func showAgencias(agencias: [Agencia])
+    func setLoadingTo(_ state: Bool)
 }
 
 class AgenciaView: UIViewController {
@@ -24,16 +25,25 @@ class AgenciaView: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
-        viewModel.delegate = self
+        self.viewModel.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewModel.ready()
+    }
     
 }
 
 extension AgenciaView: AgenciaViewDelegate {
+    
+    func setLoadingTo(_ state: Bool) {
+        state ? print("Loading") : print("Not Loading")
+    }
+    
     func showAgencias(agencias: [Agencia]) {
-        print("")
+        print("Show Agencias")
     }
 }
 

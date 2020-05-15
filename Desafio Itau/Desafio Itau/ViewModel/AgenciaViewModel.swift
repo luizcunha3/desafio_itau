@@ -10,9 +10,14 @@ import Foundation
 
 class AgenciaViewModel {
     
-    var delegate: AgenciaViewDelegate?
+    var delegate: AgenciaViewDelegate!
     
     private let agencias: [Agencia] = []
     
+    private let repository = GooglePlacesRepository()
+    
+    func ready() {
+        delegate.setLoadingTo(true)
+    }
 }
 
