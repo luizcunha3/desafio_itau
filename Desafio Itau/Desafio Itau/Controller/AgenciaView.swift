@@ -13,7 +13,6 @@ import CoreLocation
 protocol AgenciaViewDelegate {
     func showAgencias(agencias: [Agencia])
     func setLoadingTo(_ state: Bool)
-    func showPredictions(predictions: [CLLocation])
 }
 
 class AgenciaView: UIViewController {
@@ -62,14 +61,36 @@ extension AgenciaView {
         }
     }
     
-    func setAgenciaMarker(agency: Agencia) {
+    func createAgencyMarker(agency: Agencia) -> GMSMarker? {
         if let agencyCoordinate = agency.location {
             let agencyMarker = GMSMarker()
             agencyMarker.position = agencyCoordinate
             agencyMarker.title = agency.nome
             agencyMarker.snippet = agency.endereco
-            agencyMarker.map = mapView!
+            agencyMarker.icon = UIImage(named: "itau")
+            agencyMarker.map = self.mapView!
+            return agencyMarker
+        } else {
+            return nil
         }
+    }
+    
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    func fitMapToMarkers(markers: [GMSMarker]) {
+        let firstLocation = markers.first!.position
+        var bounds = GMSCoordinateBounds(coordinate: firstLocation, coordinate: firstLocation)
+        for marker in markers {
+            bounds = bounds.includingCoordinate(marker.position)
+        }
+        let updateMapView = GMSCameraUpdate.fit(bounds, withPadding: 15)
+        self.mapView?.animate(with: updateMapView)
     }
     
     func configureMap(location: CLLocation?) {
@@ -86,13 +107,13 @@ extension AgenciaView: AgenciaViewDelegate {
     }
     
     func showAgencias(agencias: [Agencia]) {
+        var markers: [GMSMarker] = []
         for agency in agencias {
-            self.setAgenciaMarker(agency: agency)
+            if let marker = self.createAgencyMarker(agency: agency) {
+                markers.append(marker)
+            }
         }
-    }
-    
-    func showPredictions(predictions: [CLLocation]) {
-        
+        self.fitMapToMarkers(markers: markers)
     }
 }
 
