@@ -7,13 +7,12 @@
 //
 
 import Foundation
+import CoreLocation
+import GooglePlaces
 
 class Agencia {
-    let endereco: String
-    let horarioDeFuncionamento: String
-    
-    init(endereco: String, horarioDeFuncionamento: String) {
-        self.endereco = endereco
-        self.horarioDeFuncionamento = horarioDeFuncionamento
-    }
+    var location: CLLocationCoordinate2D?
+    var nome: String?
+    var endereco: String?
+    var horarioDeFuncionamento: GMSOpeningHours?
 }

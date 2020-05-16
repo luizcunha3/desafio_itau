@@ -18,8 +18,21 @@ class AgenciaViewModel {
     
     private let repository = GooglePlacesRepository()
     
+    init() {
+        self.repository.delegate = self
+    }
+    
     func ready(location: CLLocation?) {
         delegate.setLoadingTo(true)
+        if let userLocation = location {
+            repository.newGetPlaces(location: userLocation)
+        }
         
+    }
+}
+
+extension AgenciaViewModel: GooglePlacesRepositoryDelegate {
+    func foundPlaces(places: [Agencia]) {
+        self.delegate.showAgencias(agencias: places)
     }
 }

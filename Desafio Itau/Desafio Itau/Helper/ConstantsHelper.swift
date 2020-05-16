@@ -14,4 +14,5 @@ class ConstantsHelper {
     static let DEFAULT_LONGITUDE = -51.20
     static let DEFAULT_ZOOM = Float(2.0)
     static let RANGE_IN_KILOMETERS = 20000.00
+    static let DISTANCE_NOT_IN_RANGE = 40000.00
 }

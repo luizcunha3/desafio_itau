@@ -13,6 +13,7 @@ import CoreLocation
 protocol AgenciaViewDelegate {
     func showAgencias(agencias: [Agencia])
     func setLoadingTo(_ state: Bool)
+    func showPredictions(predictions: [CLLocation])
 }
 
 class AgenciaView: UIViewController {
@@ -61,6 +62,16 @@ extension AgenciaView {
         }
     }
     
+    func setAgenciaMarker(agency: Agencia) {
+        if let agencyCoordinate = agency.location {
+            let agencyMarker = GMSMarker()
+            agencyMarker.position = agencyCoordinate
+            agencyMarker.title = agency.nome
+            agencyMarker.snippet = agency.endereco
+            agencyMarker.map = mapView!
+        }
+    }
+    
     func configureMap(location: CLLocation?) {
         self.configureMapCanvas(location: location)
         self.setUserMarker(location: location)
@@ -75,7 +86,13 @@ extension AgenciaView: AgenciaViewDelegate {
     }
     
     func showAgencias(agencias: [Agencia]) {
-        print("Show Agencias")
+        for agency in agencias {
+            self.setAgenciaMarker(agency: agency)
+        }
+    }
+    
+    func showPredictions(predictions: [CLLocation]) {
+        
     }
 }
 
@@ -95,6 +112,8 @@ extension AgenciaView: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Fatal Error")
     }
+    
+    
 }
 
 
