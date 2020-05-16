@@ -45,7 +45,7 @@ class AgenciaView: UIViewController {
 
 extension AgenciaView {
     func configureMapCanvas(location: CLLocation?) {
-        var camera = GMSCameraPosition.camera(withLatitude: -12.86, longitude: -51.20, zoom: 2.0)
+        var camera = GMSCameraPosition.camera(withLatitude: ConstantsHelper.DEFAULT_LATITUDE, longitude: ConstantsHelper.DEFAULT_LONGITUDE, zoom: ConstantsHelper.DEFAULT_ZOOM)
         if let userLocation = location {
             camera = GMSCameraPosition.camera(withTarget: userLocation.coordinate, zoom: 16.0)
         }

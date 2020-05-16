@@ -12,7 +12,7 @@
 		56055F26246F362F00C5F56F /* KeysHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F25246F362F00C5F56F /* KeysHelper.swift */; };
 		56055F29246F37B000C5F56F /* AgenciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F28246F37B000C5F56F /* AgenciaView.swift */; };
 		56055F2D246F42D700C5F56F /* GooglePlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F2C246F42D700C5F56F /* GooglePlacesRepository.swift */; };
-		56055F2F246F462500C5F56F /* StringsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F2E246F462500C5F56F /* StringsHelper.swift */; };
+		56055F2F246F462500C5F56F /* ConstantsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F2E246F462500C5F56F /* ConstantsHelper.swift */; };
 		56055F31246F5DDD00C5F56F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F30246F5DDD00C5F56F /* LocationHelper.swift */; };
 		56465AED246F304800B0E85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56465AEC246F304800B0E85C /* AppDelegate.swift */; };
 		56465AEF246F304800B0E85C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56465AEE246F304800B0E85C /* SceneDelegate.swift */; };
@@ -31,7 +31,7 @@
 		56055F25246F362F00C5F56F /* KeysHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysHelper.swift; sourceTree = "<group>"; };
 		56055F28246F37B000C5F56F /* AgenciaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgenciaView.swift; sourceTree = "<group>"; };
 		56055F2C246F42D700C5F56F /* GooglePlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesRepository.swift; sourceTree = "<group>"; };
-		56055F2E246F462500C5F56F /* StringsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsHelper.swift; sourceTree = "<group>"; };
+		56055F2E246F462500C5F56F /* ConstantsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsHelper.swift; sourceTree = "<group>"; };
 		56055F30246F5DDD00C5F56F /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		56465AE9246F304800B0E85C /* Desafio Itau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio Itau.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56465AEC246F304800B0E85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				56055F25246F362F00C5F56F /* KeysHelper.swift */,
-				56055F2E246F462500C5F56F /* StringsHelper.swift */,
+				56055F2E246F462500C5F56F /* ConstantsHelper.swift */,
 				56055F30246F5DDD00C5F56F /* LocationHelper.swift */,
 			);
 			path = Helper;
@@ -281,7 +281,7 @@
 				56055F29246F37B000C5F56F /* AgenciaView.swift in Sources */,
 				56055F31246F5DDD00C5F56F /* LocationHelper.swift in Sources */,
 				56055F2D246F42D700C5F56F /* GooglePlacesRepository.swift in Sources */,
-				56055F2F246F462500C5F56F /* StringsHelper.swift in Sources */,
+				56055F2F246F462500C5F56F /* ConstantsHelper.swift in Sources */,
 				56465AED246F304800B0E85C /* AppDelegate.swift in Sources */,
 				56465AEF246F304800B0E85C /* SceneDelegate.swift in Sources */,
 				56055F26246F362F00C5F56F /* KeysHelper.swift in Sources */,

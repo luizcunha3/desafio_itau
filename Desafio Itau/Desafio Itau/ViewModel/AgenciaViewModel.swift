@@ -20,6 +20,6 @@ class AgenciaViewModel {
     
     func ready(location: CLLocation?) {
         delegate.setLoadingTo(true)
-        GooglePlacesRepository.
+        
     }
 }
