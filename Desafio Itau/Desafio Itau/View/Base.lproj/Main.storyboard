@@ -14,9 +14,67 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-YK-dTp" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duc-VH-pjf">
+                                <rect key="frame" x="0.0" y="683" width="414" height="179"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcH-rE-mkj">
+                                        <rect key="frame" x="24" y="12" width="366" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhD-GP-CLr">
+                                        <rect key="frame" x="24" y="47" width="366" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX2-dZ-jPp">
+                                        <rect key="frame" x="24" y="80" width="366" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="rcH-rE-mkj" firstAttribute="top" secondItem="duc-VH-pjf" secondAttribute="top" constant="12" id="0Ub-P6-R6a"/>
+                                    <constraint firstItem="MhD-GP-CLr" firstAttribute="top" secondItem="rcH-rE-mkj" secondAttribute="bottom" constant="12" id="1U5-gg-6Ou"/>
+                                    <constraint firstAttribute="trailing" secondItem="MhD-GP-CLr" secondAttribute="trailing" constant="24" id="6CC-LT-Vsg"/>
+                                    <constraint firstAttribute="trailing" secondItem="rcH-rE-mkj" secondAttribute="trailing" constant="24" id="ILD-qK-4xM"/>
+                                    <constraint firstItem="CX2-dZ-jPp" firstAttribute="leading" secondItem="duc-VH-pjf" secondAttribute="leading" constant="24" id="Iye-nM-e1T"/>
+                                    <constraint firstItem="CX2-dZ-jPp" firstAttribute="top" secondItem="MhD-GP-CLr" secondAttribute="bottom" constant="12" id="eO8-JT-MLC"/>
+                                    <constraint firstAttribute="trailing" secondItem="CX2-dZ-jPp" secondAttribute="trailing" constant="24" id="qdj-Ls-kOW"/>
+                                    <constraint firstItem="MhD-GP-CLr" firstAttribute="leading" secondItem="duc-VH-pjf" secondAttribute="leading" constant="24" id="wSA-of-wKv"/>
+                                    <constraint firstItem="rcH-rE-mkj" firstAttribute="leading" secondItem="duc-VH-pjf" secondAttribute="leading" constant="24" id="xrM-YR-Oxb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="duc-VH-pjf" secondAttribute="bottom" id="7Nb-Qp-FbW"/>
+                            <constraint firstItem="duc-VH-pjf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="9O1-ba-Ipf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MHN-YK-dTp" secondAttribute="bottom" id="EJx-2T-52t"/>
+                            <constraint firstItem="duc-VH-pjf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GbJ-Rb-Knh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MHN-YK-dTp" secondAttribute="trailing" id="QeN-bk-bn7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="duc-VH-pjf" secondAttribute="trailing" id="YLI-oB-Ff5"/>
+                            <constraint firstItem="MHN-YK-dTp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cdK-ez-BVv"/>
+                            <constraint firstItem="MHN-YK-dTp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k2j-5F-Mld"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="agencyAddress" destination="rcH-rE-mkj" id="AaV-FF-iAw"/>
+                        <outlet property="agencyInfoView" destination="duc-VH-pjf" id="oH8-uG-qW4"/>
+                        <outlet property="agencyName" destination="MhD-GP-CLr" id="Qdd-Zi-jzu"/>
+                        <outlet property="agencyOpeningHours" destination="CX2-dZ-jPp" id="f6x-zk-Yj1"/>
+                        <outlet property="mapView" destination="MHN-YK-dTp" id="2bM-e2-zkJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

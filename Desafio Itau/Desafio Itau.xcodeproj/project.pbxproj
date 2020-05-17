@@ -14,6 +14,8 @@
 		56055F2D246F42D700C5F56F /* GooglePlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F2C246F42D700C5F56F /* GooglePlacesRepository.swift */; };
 		56055F2F246F462500C5F56F /* ConstantsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F2E246F462500C5F56F /* ConstantsHelper.swift */; };
 		56055F31246F5DDD00C5F56F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F30246F5DDD00C5F56F /* LocationHelper.swift */; };
+		56055F332470853F00C5F56F /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56055F322470853F00C5F56F /* MarkerInfoView.xib */; };
+		56055F352470863000C5F56F /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56055F342470863000C5F56F /* MarkerInfoView.swift */; };
 		56465AED246F304800B0E85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56465AEC246F304800B0E85C /* AppDelegate.swift */; };
 		56465AEF246F304800B0E85C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56465AEE246F304800B0E85C /* SceneDelegate.swift */; };
 		56465AF1246F304800B0E85C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56465AF0246F304800B0E85C /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 		56055F2C246F42D700C5F56F /* GooglePlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesRepository.swift; sourceTree = "<group>"; };
 		56055F2E246F462500C5F56F /* ConstantsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsHelper.swift; sourceTree = "<group>"; };
 		56055F30246F5DDD00C5F56F /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		56055F322470853F00C5F56F /* MarkerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
+		56055F342470863000C5F56F /* MarkerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
 		56465AE9246F304800B0E85C /* Desafio Itau.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio Itau.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56465AEC246F304800B0E85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56465AEE246F304800B0E85C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				56465AF2246F304800B0E85C /* Main.storyboard */,
+				56055F322470853F00C5F56F /* MarkerInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				56055F28246F37B000C5F56F /* AgenciaView.swift */,
+				56055F342470863000C5F56F /* MarkerInfoView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56055F332470853F00C5F56F /* MarkerInfoView.xib in Resources */,
 				56465AF9246F304A00B0E85C /* LaunchScreen.storyboard in Resources */,
 				56465AF6246F304A00B0E85C /* Assets.xcassets in Resources */,
 				56465AF4246F304800B0E85C /* Main.storyboard in Resources */,
@@ -283,6 +290,7 @@
 				56055F2D246F42D700C5F56F /* GooglePlacesRepository.swift in Sources */,
 				56055F2F246F462500C5F56F /* ConstantsHelper.swift in Sources */,
 				56465AED246F304800B0E85C /* AppDelegate.swift in Sources */,
+				56055F352470863000C5F56F /* MarkerInfoView.swift in Sources */,
 				56465AEF246F304800B0E85C /* SceneDelegate.swift in Sources */,
 				56055F26246F362F00C5F56F /* KeysHelper.swift in Sources */,
 			);

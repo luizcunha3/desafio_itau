@@ -9,7 +9,7 @@
 import Foundation
 
 class ConstantsHelper {
-    static let GMS_PLACES_QUERY_STRING = "Itau"
+    static let GMS_PLACES_QUERY_STRING = "Agência Itau"
     static let DEFAULT_LATITUDE = -12.86
     static let DEFAULT_LONGITUDE = -51.20
     static let DEFAULT_ZOOM = Float(2.0)

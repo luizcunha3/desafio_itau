@@ -17,18 +17,30 @@ protocol AgenciaViewDelegate {
 
 class AgenciaView: UIViewController {
     
+    @IBOutlet weak var agencyInfoView: UIView!
+    @IBOutlet weak var agencyAddress: UILabel!
+    @IBOutlet weak var agencyName: UILabel!
+    @IBOutlet weak var agencyOpeningHours: UILabel!
+    
+    
+    
     var viewModel: AgenciaViewModel!
     private let locationManager = CLLocationManager()
     private var loading = false
-    private var mapView: GMSMapView?
+    private var userLastLocation: CLLocation?
+    private var clickedMarker: GMSMarker? = nil
+    @IBOutlet weak var mapView: GMSMapView!
+    private var markers: [GMSMarker] = []
+    private var agencies: [Agencia] = []
+    private var infoView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.configureMap(location: nil)
         self.viewModel = AgenciaViewModel()
         self.viewModel.delegate = self
         self.locationManager.delegate = self
-        self.configureMap(location: nil)
+        
         self.locationManager.requestWhenInUseAuthorization()
         
     }
@@ -49,8 +61,8 @@ extension AgenciaView {
         if let userLocation = location {
             camera = GMSCameraPosition.camera(withTarget: userLocation.coordinate, zoom: 16.0)
         }
-        mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.view.addSubview(mapView!)
+        
+        mapView.camera = camera
     }
     
     func setUserMarker(location: CLLocation?) {
@@ -66,8 +78,10 @@ extension AgenciaView {
             let agencyMarker = GMSMarker()
             agencyMarker.position = agencyCoordinate
             agencyMarker.title = agency.nome
-            agencyMarker.snippet = agency.endereco
+            agencyMarker.snippet = agency.endereco! + "\n" + (agency.stringHorarioDeFuncionamento ?? "")
             agencyMarker.icon = UIImage(named: "itau")
+            agencyMarker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.5)
+            agencyMarker.tracksViewChanges = true
             agencyMarker.map = self.mapView!
             return agencyMarker
         } else {
@@ -83,13 +97,15 @@ extension AgenciaView {
         return newImage
     }
     
-    func fitMapToMarkers(markers: [GMSMarker]) {
-        let firstLocation = markers.first!.position
-        var bounds = GMSCoordinateBounds(coordinate: firstLocation, coordinate: firstLocation)
+    func fitMapToMarkers(location: CLLocation?, markers: [GMSMarker]) {
+        var bounds = GMSCoordinateBounds()
+        if let userLocation = location {
+            bounds = bounds.includingCoordinate(userLocation.coordinate)
+        }
         for marker in markers {
             bounds = bounds.includingCoordinate(marker.position)
         }
-        let updateMapView = GMSCameraUpdate.fit(bounds, withPadding: 15)
+        let updateMapView = GMSCameraUpdate.fit(bounds, withPadding: 30)
         self.mapView?.animate(with: updateMapView)
     }
     
@@ -113,9 +129,12 @@ extension AgenciaView: AgenciaViewDelegate {
                 markers.append(marker)
             }
         }
-        self.fitMapToMarkers(markers: markers)
+        self.markers = markers
+        self.agencies = agencias
+        self.fitMapToMarkers(location: self.userLastLocation, markers: markers)
     }
 }
+
 
 extension AgenciaView: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -124,7 +143,9 @@ extension AgenciaView: CLLocationManagerDelegate {
         }
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         if let location = locations.first {
+            self.userLastLocation = location
             self.configureMap(location: location)
             self.viewModel.ready(location: location)
         }

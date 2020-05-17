@@ -35,23 +35,28 @@ class GooglePlacesRepository: NSObject {
         let northSouthToAdd = region.span.latitudeDelta / 2
         let eastWestToAdd = region.span.longitudeDelta / 2
         
+        
         let northEastLatitude = location.coordinate.latitude + northSouthToAdd
         let northEastLongitude = location.coordinate.longitude + eastWestToAdd
-        
         let northEastPosition = CLLocation(latitude: northEastLatitude, longitude: northEastLongitude)
         
         let southWestLatitude = location.coordinate.latitude - northSouthToAdd
         let southWestLongitude = location.coordinate.longitude - eastWestToAdd
-        
         let southWestPosition = CLLocation(latitude: southWestLatitude, longitude: southWestLongitude)
+        
+        
         let bounds = GMSCoordinateBounds(coordinate: northEastPosition.coordinate, coordinate: southWestPosition.coordinate)
         return bounds
         
     }
     
     func googleAddresToAddress(place: GMSPlace) -> Agencia {
-        
-        return Agencia()
+        let agency = Agencia()
+        agency.nome = place.name
+        agency.location = place.coordinate
+        agency.endereco = place.formattedAddress
+        agency.horarioDeFuncionamento = place.openingHours
+        return agency
     }
     
     private func getGooglePlacesFromPredictions(predictions: [GMSAutocompletePrediction], completion: @escaping ([GMSPlace]) -> Void ) {
@@ -72,29 +77,18 @@ class GooglePlacesRepository: NSObject {
     }
     
     private func getGooglePlaceFromPrediction(placeId: String, completion: @escaping (GMSPlace) -> Void) {
-        self.googlePlacesClient.fetchPlace(fromPlaceID: placeId, placeFields: .coordinate, sessionToken: nil) { (place, error) in
+        self.googlePlacesClient.fetchPlace(fromPlaceID: placeId, placeFields: .all, sessionToken: nil) { (place, error) in
             if let itauPlace = place {
                 completion(itauPlace)
             }
         }
     }
     
-  
-    
-    func getPlacesPredictions(location: CLLocation, completion: @escaping ([GMSAutocompletePrediction]?, Error?) -> Void) {
-        let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
-        filter.origin = location
-//        let boundaries = self.calcultateBounds(location: location)
-        self.googlePlacesClient.autocompleteQuery(ConstantsHelper.GMS_PLACES_QUERY_STRING, bounds: nil, boundsMode: .bias, filter: filter) { (placePredictions, error) in
-            completion(placePredictions, error) 
-        }
-    }
     
     func newGetPlaces(location: CLLocation) {
         let boundaries = self.calcultateBounds(location: location)
         let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
+        filter.origin = location
         let fetcher = GMSAutocompleteFetcher(bounds: boundaries, filter: filter)
         fetcher.delegate = self
         fetcher.provide(self.token)
@@ -107,14 +101,13 @@ extension GooglePlacesRepository: GMSAutocompleteFetcherDelegate {
   func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
     self.getGooglePlacesFromPredictions(predictions: predictions) { (places) in
         var agencies: [Agencia] = []
-        for place in places {
-            let agency = Agencia()
-            agency.location = place.coordinate
-            agency.endereco = place.formattedAddress
-            agency.horarioDeFuncionamento = place.openingHours
-            agencies.append(agency)
+        self.getGooglePlacesFromPredictions(predictions: predictions) { (places) in
+            for place in places {
+                agencies.append(self.googleAddresToAddress(place: place))
+            }
+            self.delegate!.foundPlaces(places: agencies)
         }
-        self.delegate!.foundPlaces(places: agencies)
+        
     }
   }
 
