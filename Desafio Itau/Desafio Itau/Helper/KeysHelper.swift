@@ -9,5 +9,5 @@
 import Foundation
 
 class KeysHelper {
-    static let GOOGLE_API_KEY = "AIzaSyCMk754lez9pQpRXEQqkCMsmyc2X7KZS4M"
+    static let GOOGLE_API_KEY = ""
 }
